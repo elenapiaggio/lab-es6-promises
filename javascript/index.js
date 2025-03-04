@@ -87,11 +87,12 @@ obtainInstruction('steak', 0)
     document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
   })
   .catch((error) => console.log(error))
+  .finally(() => {
+    document.querySelector("#steakImg").removeAttribute("hidden");
+  });
 
 
 // Iteration 3 using async/await
-
-
 async function makeBroccoli() {
   try {
     const step0 = await obtainInstruction('broccoli', 0);
@@ -119,6 +120,7 @@ async function makeBroccoli() {
     console.log('Error: ', error);
   } finally {
     document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
+    document.querySelector("#broccoliImg").removeAttribute("hidden");
   }
 }
 
